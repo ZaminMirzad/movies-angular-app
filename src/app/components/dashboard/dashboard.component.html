@@ -1,0 +1,58 @@
+<div class="container-fluid p-0 m-0 overflow-x-hidden bg-black text-white/50">
+  <!-- carousel -->
+  <div class="w-full min-h-scree overflow-hidden">
+    <div
+      class="flex items-center overflow-x-auto scroll-m-0 snap-x snap-mandatory scroll-hidden">
+      <div
+        class="snap-center"
+        *ngFor="let movie of latestMovies?.results; let i = index">
+        <div class="min-w-[100vw] max-h-[75vh] overflow-hidden relative">
+          <img
+            src="{{ movie.backdrop_path }}"
+            alt=""
+            class="object-cover w-full" />
+          <!-- overlay -->
+          <div
+            class="w-full h-full bg-gradient-to-tr from-black/80 to-transparent absolute z-50 top-0 left-0 right-0 flex items-end justify-start pb-10 px-10">
+            <!-- details -->
+            <div class="max-w-[40%] w-full p-4 flex flex-col space-y-2">
+              <h2 class="text-4xl capitalize text-white">{{ movie.title }}</h2>
+              <p class="text-sm text-white/70">{{ movie.overview }}</p>
+              <p class="">
+                Language :
+                <span class="uppercase">{{ movie.original_language }}</span>
+              </p>
+              <p class="text-yellow-500">
+                Rating :
+                <span class="text-white">{{ movie.vote_average }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- trendings -->
+  <div class="row mt-3 pt-2 px-2 py-4">
+    <h4>Trending movies</h4>
+    <div
+      class="col-md-3 mt-4"
+      *ngFor="let movie of popularMovies?.results; let i = index">
+      <div class="card bg-dark text-white cursor-pointer">
+        <img src="{{ movie.backdrop_path }}" alt="" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title truncate">{{ movie.title }}</h5>
+          <p>
+            <span class="text-warning">Rating</span> : {{ movie.vote_average }}
+          </p>
+          <p>
+            Language :
+            <span class="p-1 text-uppercase"
+              ><b>{{ movie.original_language }}</b></span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
