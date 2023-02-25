@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   getPopularMovies() {
     this.dataService.getPopularMovies().subscribe(
       res => {
-        this.popularMovies = this.modifyData(res);
+        this.popularMovies = this.modifyDataOptimizedImage(res);
       },
       err => {
         console.log('error occured', err);
@@ -60,6 +60,23 @@ export class DashboardComponent implements OnInit {
       movies.results.forEach(movie => {
         movie.backdrop_path =
           'https://image.tmdb.org/t/p/original' +
+          movie.backdrop_path +
+          '?api_key=' +
+          environment.api_key;
+
+        if (!movie.title) {
+          movie.title = movie?.name;
+        }
+      });
+    }
+    return movies;
+  }
+  // modify image path
+  modifyDataOptimizedImage(movies: Movie): Movie {
+    if (movies.results) {
+      movies.results.forEach(movie => {
+        movie.backdrop_path =
+          'https://image.tmdb.org/t/p/w300' +
           movie.backdrop_path +
           '?api_key=' +
           environment.api_key;
