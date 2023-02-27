@@ -21,4 +21,15 @@ export class DataService {
       this.url + '/movie/popular?api_key=' + environment.api_key
     );
   }
+
+  getMovie(id: any): Observable<any> {
+    return this.http.get<any>(
+      this.url + '/movie/' + id + '?api_key=' + environment.api_key
+    );
+  }
+  getTv(id: any): Observable<any> {
+    return this.http.get<any>(
+      this.url + '/tv/' + id + '?api_key=' + environment.api_key
+    );
+  }
 }

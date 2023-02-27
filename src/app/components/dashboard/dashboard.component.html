@@ -26,6 +26,14 @@
                 Rating :
                 <span class="text-white">{{ movie.vote_average }}</span>
               </p>
+              <a
+                [routerLink]="[
+                  movie.media_type === 'tv' ? 'tv' : 'movie',
+                  movie.id
+                ]"
+                class="text-blue-500 cursor-pointer underline underline-offset-2"
+                >See details</a
+              >
             </div>
           </div>
         </div>
@@ -38,7 +46,7 @@
     <div
       class="col-md-3 mt-4"
       *ngFor="let movie of popularMovies?.results; let i = index">
-      <div class="card bg-dark text-white cursor-pointer">
+      <div class="card bg-dark text-white">
         <img src="{{ movie.backdrop_path }}" alt="" class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title truncate">{{ movie.title }}</h5>
@@ -51,6 +59,14 @@
               ><b>{{ movie.original_language }}</b></span
             >
           </p>
+          <a
+            [routerLink]="[
+              movie.media_type === 'tv' ? 'tv' : 'movie',
+              movie.id
+            ]"
+            class="text-blue-500 cursor-pointer underline underline-offset-2"
+            >See details</a
+          >
         </div>
       </div>
     </div>

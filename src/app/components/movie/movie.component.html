@@ -1,0 +1,40 @@
+<main *ngIf="movie" class="h-screen w-screen overflow-hidden">
+  <div class="w-full h-full scroll-sm relative">
+    <img
+      src="{{ movie.backdrop_path }}"
+      alt=""
+      class="object-cover w-full h-full" />
+  </div>
+  <div
+    class="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-gradient-to-r from-black/80 to-transparent text-white/70">
+    <div class="px-4 max-w-2xl space-y-4 py-4">
+      <a href="/" class="px-3 py-1 rounded border">Back to Home</a>
+      <h1 class="text-3xl mt-4">
+        {{ movie.title || movie.name }}
+        <span class="uppercase">
+          - {{ movie.release_date.slice(0, 4) }}
+          {{ movie.original_language }}</span
+        >
+      </h1>
+      <p class="">
+        {{ movie.overview }}
+        <a
+          *ngIf="movie.homepage"
+          href="{{ movie.homepage }}"
+          target="_blank"
+          class="text-blue-600 hover:underline underline-offset-4"
+          >Read more...</a
+        >
+      </p>
+      <div class="">
+        <p class="space-x-2 flex">
+          <span
+            *ngFor="let genre of movie.genres"
+            class="border rounded text-cyan-500 text-xs font-semibold px-2 py-1"
+            >{{ genre.name }}</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</main>

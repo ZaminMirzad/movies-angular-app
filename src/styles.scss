@@ -7,36 +7,36 @@
 @tailwind utilities;
 
 /*  html scroll */
-html::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 5px;
   height: 8px;
   scrollbar-width: thin;
 }
 
-html::-webkit-scrollbar:hover {
+::-webkit-scrollbar:hover {
   width: 8px;
   height: 8px;
   scrollbar-width: thin;
 }
 
-html::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #21242d;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
-html::-webkit-scrollbar-track:hover {
+::-webkit-scrollbar-track:hover {
   background: #21242d;
-  border-radius: 8px;
+  border-radius: 1;
 }
 
-html::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #00b9ae;
-  border-radius: 8px;
+  border-radius: 1px;
   opacity: 0.8;
 }
 
-html::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #00b9ae;
-  border-radius: 8px;
+  border-radius: 1px;
   opacity: 0.8;
 }
